@@ -2,6 +2,8 @@
 
 This repository exists to exercise the FoxHealer GitHub App end-to-end.
 
+It contains a tiny TypeScript domain with a few pieces of business logic (pricing, restocking, and fulfillment) plus Vitest coverage so you can deliberately break behavior and watch FoxHealer repair the regression.
+
 ## What is FoxHealer?
 
 FoxHealer is an AI-powered fixer for failing CI.
@@ -13,3 +15,12 @@ When GitHub Actions fails on a PR:
 - Commits the fix back to the PR
 
 A fully automated "self-healing CI" pipeline in one GitHub App.
+
+## Local development
+
+```bash
+npm install
+npm test
+```
+
+Break a rule in `src/services` or adjust the fixtures inside `tests/` to simulate a regression and then let FoxHealer attempt the repair.
