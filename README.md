@@ -24,3 +24,5 @@ npm test
 ```
 
 Break a rule in `src/services` or adjust the fixtures inside `tests/` to simulate a regression and then let FoxHealer attempt the repair.
+
+> CI trigger: this line exists solely to poke the pipeline when testing automation.
