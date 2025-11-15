@@ -61,6 +61,13 @@ export const calculateDiscountedTotal = (
     messages.push(`Seasonal discount applied to ${rules.seasonalCategory} items.`);
   }
 
+  const seasonalItemCount = order.items.filter((item) => item.category === rules.seasonalCategory).length;
+  const seasonalRatio = seasonalItemCount / order.items.length;
+  if (customer.churnRisk === 'high' && seasonalRatio >= 0.4) {
+    discountRate += 0.03;
+    messages.push('High-risk seasonal uplift applied.');
+  }
+
   const isWeekend = [0, 6].includes(referenceDate.getUTCDay());
   if (isWeekend && customer.loyaltyTier !== 'gold') {
     discountRate += 0.02;
