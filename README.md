@@ -1,5 +1,5 @@
 # FoxHealer Test Repository
-..
+...
 This repository exists to exercise the FoxHealer GitHub App end-to-end.
 
 It contains a tiny TypeScript domain with a few pieces of business logic (pricing, restocking, and fulfillment) plus Vitest coverage so you can deliberately break behavior and watch FoxHealer repair the regression.
