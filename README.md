@@ -1,5 +1,5 @@
 # FoxHealer Test Repository
-
+...
 This repository exists to exercise the FoxHealer GitHub App end-to-end.
 
 It contains a tiny TypeScript domain with a few pieces of business logic (pricing, restocking, and fulfillment) plus Vitest coverage so you can deliberately break behavior and watch FoxHealer repair the regression.
@@ -23,4 +23,22 @@ npm install
 npm test
 ```
 
-Break a rule in `src/services` or adjust the fixtures inside `tests/` to simulate a regression and then let FoxHealer attempt the repair.
+<!-- trigger 6 -->
+
+<!-- trigger 7 -->
+
+<!-- trigger 8 -->
+
+<!-- trigger 9 -->
+
+<!-- trigger 10 -->
+
+<!-- trigger 11 -->
+
+<!-- trigger 12 -->
+
+<!-- trigger 13 -->
+
+<!-- trigger 14 -->
+
+<!-- trigger 15 -->

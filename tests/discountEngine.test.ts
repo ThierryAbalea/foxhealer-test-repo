@@ -20,6 +20,7 @@ const sampleOrder: Order = {
   createdAt: new Date('2024-01-26T10:00:00Z'),
   items: [
     { sku: 'abc', quantity: 2, unitPrice: 50, category: 'everyday' },
+    { sku: 'bonus', quantity: 1, unitPrice: 30, category: 'everyday' },
     { sku: 'season-1', quantity: 1, unitPrice: 120, category: 'seasonal' },
   ],
 };
@@ -36,9 +37,10 @@ describe('calculateDiscountedTotal', () => {
     const result = calculateDiscountedTotal(sampleOrder, profile, baseRules, new Date('2024-01-27T12:00:00Z'));
 
     expect(result.discountRate).toBeCloseTo(0.25, 2); // capped
-    expect(result.discountAmount).toBeCloseTo(55, 0);
-    expect(result.finalTotal).toBeCloseTo(165, 0);
+    expect(result.discountAmount).toBeCloseTo(62.5, 1);
+    expect(result.finalTotal).toBeCloseTo(187.5, 1);
     expect(result.messages).toContain('Discount capped by promotion rules.');
+    expect(result.messages).toContain('High-risk seasonal uplift applied.');
   });
 
   it('handles non-seasonal orders without bonuses', () => {
@@ -57,7 +59,7 @@ describe('calculateDiscountedTotal', () => {
     const result = calculateDiscountedTotal(order, loyalCustomer, baseRules, new Date('2024-01-24T10:00:00Z'));
 
     expect(result.discountRate).toBeCloseTo(0.05, 2);
-    expect(result.finalTotal).toBeCloseTo(95, 0);
+    expect(result.finalTotal).toBeCloseTo(123.5, 1);
     expect(result.messages).not.toContain('Discount capped by promotion rules.');
   });
 });
